@@ -134,13 +134,13 @@ namespace http
 
 			unsigned int option_flags = flags_ | req.flags_;
 			DWORD security_flags = 0;
-			if((option_flags & option_allow_unknown_cert_authority) != 0) {
+			if((option_flags & 1<<option_allow_unknown_cert_authority) != 0) {
 				security_flags |= SECURITY_FLAG_IGNORE_UNKNOWN_CA;
 			}
-			if((option_flags & option_allow_invalid_cert_name) != 0) {
+			if((option_flags & 1<<option_allow_invalid_cert_name) != 0) {
 				security_flags |= SECURITY_FLAG_IGNORE_CERT_CN_INVALID;
 			}
-			if((option_flags & option_allow_invalid_cert_date) != 0) {
+			if((option_flags & 1<<option_allow_invalid_cert_date) != 0) {
 				security_flags |= SECURITY_FLAG_IGNORE_CERT_DATE_INVALID;
 			}
 
